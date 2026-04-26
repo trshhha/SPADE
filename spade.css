@@ -1,9 +1,3 @@
-/* =============================================
-   SPADE SANDBOX — spade.css
-   Light Professional Theme — Bold Headers
-============================================= */
-
-/* --- Reset & Base --- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -44,16 +38,13 @@
   --border-blue:     rgba(26, 64, 196, 0.28);
   --border-purple:   rgba(91, 33, 182, 0.28);
 
-  /* Typography scale */
   --font-ui:    'Trebuchet MS', 'Lucida Grande', 'Helvetica Neue', sans-serif;
   --font-mono:  'Courier New', 'Courier', monospace;
 
-  /* Header sizes (bold labels) */
-  --fs-panel-title:   13px;   /* section headers */
+  --fs-panel-title:   13px;  
   --fs-traj-title:    13px;
   --fs-kc-section:    12px;
 
-  /* Content sizes (smaller) */
   --fs-content:       13px;
   --fs-content-sm:    12px;
   --fs-mono-content:  13px;
@@ -72,9 +63,6 @@ html, body {
   line-height: 1.55;
 }
 
-/* =============================================
-   TOP BAR
-============================================= */
 .topbar {
   display: flex;
   align-items: center;
@@ -243,9 +231,6 @@ html, body {
   background: var(--bg-red);
 }
 
-/* =============================================
-   MAIN GRID
-============================================= */
 .main-grid {
   display: grid;
   grid-template-columns: 380px 1fr 320px;
@@ -265,7 +250,6 @@ html, body {
   border-right: none;
 }
 
-/* ─── PANEL HEADERS — the bold titles ─── */
 .panel-header {
   display: flex;
   align-items: center;
@@ -276,11 +260,10 @@ html, body {
   flex-shrink: 0;
 }
 
-/* THE BIG CHANGE: panel titles are now bold, dark, large */
 .panel-title {
   font-size: var(--fs-panel-title);
   font-weight: 900;
-  color: var(--text-primary);       /* near-black, not muted */
+  color: var(--text-primary);       
   text-transform: uppercase;
   letter-spacing: 1.4px;
   font-family: var(--font-ui);
@@ -319,9 +302,6 @@ html, body {
   font-family: var(--font-ui);
 }
 
-/* =============================================
-   CONVERSATION LOG (Left Panel)
-============================================= */
 .panel-left .panel-body {
   gap: 0;
 }
@@ -340,11 +320,10 @@ html, body {
   font-family: var(--font-ui);
 }
 
-/* content text — slightly smaller */
 .conv-bubble {
   border-radius: var(--radius-md);
   padding: 13px 15px;
-  font-size: var(--fs-content);     /* 13px — content level */
+  font-size: var(--fs-content);     
   line-height: 1.7;
   max-width: 96%;
   font-family: var(--font-ui);
@@ -367,9 +346,6 @@ html, body {
   border-bottom-left-radius: 2px;
 }
 
-/* =============================================
-   CENTER PANEL
-============================================= */
 .panel-center {
   display: flex;
   flex-direction: column;
@@ -388,7 +364,6 @@ html, body {
   min-height: 0;
 }
 
-/* Memory entries — content level */
 .mem-entry {
   border-left: 3px solid var(--border-default);
   padding: 11px 14px;
@@ -403,7 +378,6 @@ html, body {
 .mem-t2 { border-color: var(--accent-blue); }
 .mem-t1 { border-color: var(--accent-green); }
 
-/* mem turn label — bold small */
 .mem-turn {
   font-size: 10px;
   font-weight: 800;
@@ -414,7 +388,6 @@ html, body {
   font-family: var(--font-ui);
 }
 
-/* mem body — content level, smaller */
 .mem-text {
   font-size: var(--fs-content-sm);   /* 12px */
   line-height: 1.65;
@@ -458,10 +431,9 @@ html, body {
   background: var(--bg-card);
 }
 
-/* tool names — content level mono */
 .tool-name {
   font-family: var(--font-mono);
-  font-size: var(--fs-mono-content);  /* 13px */
+  font-size: var(--fs-mono-content);  
   color: var(--text-mono);
   flex: 1;
   font-weight: 600;
@@ -512,7 +484,6 @@ html, body {
   margin-bottom: 10px;
 }
 
-/* RAG title uses the same bold panel-title treatment */
 .rag-header .panel-title {
   font-size: var(--fs-panel-title);
   font-weight: 900;
@@ -559,9 +530,8 @@ html, body {
   margin-bottom: 5px;
 }
 
-/* rag content — smaller */
 .rag-val {
-  font-size: var(--fs-content-sm);   /* 12px */
+  font-size: var(--fs-content-sm);   
   color: var(--text-secondary);
   line-height: 1.65;
   font-family: var(--font-ui);
@@ -572,9 +542,6 @@ html, body {
   font-weight: 700;
 }
 
-/* =============================================
-   RIGHT PANEL — Kill Chain + Trajectory
-============================================= */
 .panel-right {
   display: flex;
   flex-direction: column;
@@ -588,7 +555,6 @@ html, body {
   background: var(--bg-card);
 }
 
-/* KILL CHAIN PROGRESSION — bold, prominent */
 .kc-section-title {
   font-size: var(--fs-kc-section);
   font-weight: 900;
@@ -622,9 +588,8 @@ html, body {
 .dot-blue   { background: var(--accent-blue); }
 .dot-purple { background: var(--accent-purple); }
 
-/* kc names — content level, smaller */
 .kc-name {
-  font-size: var(--fs-content-sm);   /* 12px */
+  font-size: var(--fs-content-sm);   
   color: var(--text-secondary);
   font-weight: 500;
   flex: 1;
@@ -651,9 +616,8 @@ html, body {
 .bar-blue   { background: var(--accent-blue); }
 .bar-purple { background: var(--accent-purple); }
 
-/* fraction labels — content level */
 .kc-frac {
-  font-size: var(--fs-content-sm);   /* 12px */
+  font-size: var(--fs-content-sm);   
   color: var(--text-secondary);
   font-family: var(--font-mono);
   flex: 0 0 32px;
@@ -661,7 +625,6 @@ html, body {
   font-weight: 600;
 }
 
-/* Trajectory Section */
 .traj-section {
   flex: 1;
   overflow-y: auto;
@@ -686,7 +649,6 @@ html, body {
   border-bottom: 2px solid var(--border-default);
 }
 
-/* MCTS TRAJECTORY LOG title — bold */
 .traj-header .panel-title {
   font-size: var(--fs-panel-title);
   font-weight: 900;
@@ -695,7 +657,6 @@ html, body {
   letter-spacing: 1.4px;
 }
 
-/* CUMULATIVE REWARD — bold, prominent */
 .cumrew-label {
   font-size: 12px;
   color: var(--accent-amber);
@@ -717,7 +678,6 @@ html, body {
   border-bottom: none;
 }
 
-/* traj turn label — small bold */
 .traj-turn {
   font-size: 11px;
   font-weight: 800;
@@ -728,9 +688,8 @@ html, body {
   text-transform: uppercase;
 }
 
-/* traj description — content level, smaller */
 .traj-desc {
-  font-size: var(--fs-content-sm);   /* 12px */
+  font-size: var(--fs-content-sm);   
   color: var(--text-secondary);
   flex: 1;
   line-height: 1.6;

@@ -1,8 +1,3 @@
-// =============================================
-//   SPADE SANDBOX — spade.js
-// =============================================
-
-
 const SCENARIOS = {
   "07": {
     label: "Scenario 07 — Account Exfiltration",
@@ -279,14 +274,12 @@ const SCENARIOS = {
   }
 };
 
-
 // =============================================
 //   State
 // =============================================
 let currentScenario = "07";
 let currentTurn = 0;
 let fullHistory = [];
-
 
 // =============================================
 //   Core Functions
@@ -302,7 +295,6 @@ function resetSim() {
   render();
 }
 
-
 function switchScenario(id) {
   currentScenario = id;
   currentTurn = 0;
@@ -311,7 +303,6 @@ function switchScenario(id) {
   document.getElementById("algo-sel").value = sc.algo;
   render();
 }
-
 
 function switchAlgo(val) {
   // future use: filter scenarios by algo
@@ -336,7 +327,6 @@ function stepBack() {
   render();
 }
 
-
 // =============================================
 //   Render
 // =============================================
@@ -349,7 +339,6 @@ function render() {
     renderEmpty();
     return;
   }
-
 
   const latest = fullHistory[fullHistory.length - 1];
   const isComplete = currentTurn >= sc.turns.length;
@@ -364,7 +353,6 @@ function render() {
     badge.textContent = "Running — Turn " + currentTurn;
     badge.className = "status-badge status-running";
   }
-
 
   // Conversation log — accumulate all turns
   let convHtml = "";
@@ -450,7 +438,6 @@ function render() {
   document.getElementById("cum-rew").textContent = "Cumulative Reward: " + latest.cumrew;
 }
 
-
 // =============================================
 //   Render Empty (Initial State)
 // =============================================
@@ -496,7 +483,6 @@ function renderEmpty() {
   document.getElementById("traj-log").innerHTML = "";
   document.getElementById("cum-rew").textContent = "Cumulative Reward: 0";
 }
-
 
 // =============================================
 //   Init
