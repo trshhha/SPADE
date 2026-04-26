@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SPADE Sandbox Simulation</title>
+<link rel="stylesheet" href="spade.css" />
+</head>
+<body>
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <span class="brand-name">SPADE</span>
+    <span class="brand-sub">Sandbox Simulation</span>
+  </div>
+  <div class="topbar-center">
+    <span id="status-badge" class="status-badge status-idle">Idle — Press Step Turn to Begin</span>
+  </div>
+  <div class="topbar-controls">
+    <div class="control-group">
+      <label class="control-label">Algorithm</label>
+      <select class="select-algo" id="algo-sel" onchange="switchAlgo(this.value)">
+        <option value="zeroshot">Zero Shot</option>
+        <option value="mcts">MCTS Standard</option>
+        <option value="taff" selected>TAFF (MCTS + Temporal)</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label class="control-label">Scenario</label>
+      <select class="select-scenario" id="scenario-sel" onchange="switchScenario(this.value)">
+        <option value="07">Scenario 07 — Account Exfiltration</option>
+        <option value="03">Scenario 03 — KB Poisoning</option>
+        <option value="11">Scenario 11 — Flag Manipulation</option>
+      </select>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-secondary" onclick="stepBack()">&#9664; Back</button>
+      <button class="btn btn-primary" onclick="stepForward()">Step Turn &#9654;</button>
+      <button class="btn btn-danger" onclick="resetSim()">Reset</button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN GRID -->
+<main class="main-grid">
+  <!-- LEFT: Conversation Log -->
+  <section class="panel panel-left">
+    <div class="panel-header">
+      <span class="panel-title">Conversation Log</span>
+      <span class="panel-badge" id="scenario-label">Scenario 07</span>
+    </div>
+    <div class="panel-body" id="conv-log">
+      <p class="empty-hint">Press Step Turn to begin simulation.</p>
+    </div>
+  </section>
+
+  <!-- CENTER: Memory + Tool + RAG -->
+  <section class="panel panel-center">
+    <div class="sub-panel memory-panel">
+      <div class="panel-header">
+        <span class="panel-title">Agent Memory Buffer</span>
+        <span class="panel-badge" id="mem-count">0 entries</span>
+      </div>
+      <div class="panel-body" id="mem-log">
+        <p class="empty-hint">Memory buffer is empty.</p>
+      </div>
+    </div>
+    <div class="sub-panel tool-panel">
+      <div class="panel-header">
+        <span class="panel-title">Tool Invocation Log</span>
+        <span class="panel-badge">SPADE Tools</span>
+      </div>
+      <div id="tool-log-body" class="tool-log-body"></div>
+    </div>
+    <div class="rag-panel">
+      <div class="rag-header">
+        <span class="panel-title">RAG Context — Knowledge Base</span>
+        <span class="rag-status-badge" id="rag-status">clean</span>
+      </div>
+      <div id="rag-body" class="rag-body">
+        <div class="rag-key">billing_faq</div>
+        <div class="rag-val">Standard closure takes 3–5 business days.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT: Kill Chain + Trajectory -->
+  <section class="panel panel-right">
+    <div class="panel-header">
+      <span class="panel-title">Live Metrics</span>
+      <span class="panel-badge">Current Trajectory</span>
+    </div>
+    <div class="kc-section">
+      <div class="kc-section-title">Kill Chain Progression</div>
+      <div class="kc-row">
+        <div class="kc-dot dot-green"></div>
+        <div class="kc-name">Multi-Turn (6–8 Turns)</div>
+        <div class="kc-bar-bg">
+          <div class="kc-bar bar-green" id="bar-p" style="width:0%"></div>
+        </div>
+        <div class="kc-frac" id="frac-p">0/1</div>
+      </div>
+      <div class="kc-row">
+        <div class="kc-dot dot-amber"></div>
+        <div class="kc-name">Delayed Activation</div>
+        <div class="kc-bar-bg">
+          <div class="kc-bar bar-amber" id="bar-da" style="width:0%"></div>
+        </div>
+        <div class="kc-frac" id="frac-da">0/2</div>
+      </div>
+      <div class="kc-row">
+        <div class="kc-dot dot-blue"></div>
+        <div class="kc-name">Persistence</div>
+        <div class="kc-bar-bg">
+          <div class="kc-bar bar-blue" id="bar-ut" style="width:0%"></div>
+        </div>
+        <div class="kc-frac" id="frac-ut">0/3</div>
+      </div>
+      <div class="kc-row">
+        <div class="kc-dot dot-purple"></div>
+        <div class="kc-name">Goal Completion</div>
+        <div class="kc-bar-bg">
+          <div class="kc-bar bar-purple" id="bar-lm" style="width:0%"></div>
+        </div>
+        <div class="kc-frac" id="frac-lm">0/4</div>
+      </div>
+    </div>
+    <div class="traj-section">
+      <div class="traj-header">
+        <span class="panel-title">MCTS Trajectory Log</span>
+        <span class="cumrew-label" id="cum-rew">Cumulative Reward: 0</span>
+      </div>
+      <div id="traj-log"></div>
+    </div>
+  </section>
+</main>
+
+<script src="spade.js"></script>
+</body>
+</html>
