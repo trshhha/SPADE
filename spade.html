@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SPADE Sandbox Simulation</title>
 <link rel="stylesheet" href="spade.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+
 <!-- TOP BAR -->
 <header class="topbar">
   <div class="topbar-brand">
@@ -43,6 +45,7 @@
 
 <!-- MAIN GRID -->
 <main class="main-grid">
+
   <!-- LEFT: Conversation Log -->
   <section class="panel panel-left">
     <div class="panel-header">
@@ -56,8 +59,9 @@
 
   <!-- CENTER: Memory + Tool + RAG -->
   <section class="panel panel-center">
+
     <div class="sub-panel memory-panel">
-      <div class="panel-header">
+      <div class="panel-header panel-header--memory">
         <span class="panel-title">Agent Memory Buffer</span>
         <span class="panel-badge" id="mem-count">0 entries</span>
       </div>
@@ -65,74 +69,78 @@
         <p class="empty-hint">Memory buffer is empty.</p>
       </div>
     </div>
+
     <div class="sub-panel tool-panel">
-      <div class="panel-header">
+      <div class="panel-header panel-header--tool">
         <span class="panel-title">Tool Invocation Log</span>
         <span class="panel-badge">SPADE Tools</span>
       </div>
       <div id="tool-log-body" class="tool-log-body"></div>
     </div>
+
     <div class="rag-panel">
-      <div class="rag-header">
+      <div class="panel-header panel-header--rag">
         <span class="panel-title">RAG Context — Knowledge Base</span>
-        <span class="rag-status-badge" id="rag-status">clean</span>
+        <span class="rag-status-badge" id="rag-status">CLEAN</span>
       </div>
       <div id="rag-body" class="rag-body">
         <div class="rag-key">billing_faq</div>
         <div class="rag-val">Standard closure takes 3–5 business days.</div>
       </div>
     </div>
+
   </section>
 
   <!-- RIGHT: Kill Chain + Trajectory -->
   <section class="panel panel-right">
-    <div class="panel-header">
+
+    <div class="panel-header panel-header--metrics">
       <span class="panel-title">Live Metrics</span>
       <span class="panel-badge">Current Trajectory</span>
     </div>
+
     <div class="kc-section">
       <div class="kc-section-title">Kill Chain Progression</div>
       <div class="kc-row">
         <div class="kc-dot dot-green"></div>
         <div class="kc-name">Multi-Turn (6–8 Turns)</div>
-        <div class="kc-bar-bg">
-          <div class="kc-bar bar-green" id="bar-p" style="width:0%"></div>
-        </div>
+        <div class="kc-bar-bg"><div class="kc-bar bar-green" id="bar-p" style="width:0%"></div></div>
         <div class="kc-frac" id="frac-p">0/1</div>
       </div>
       <div class="kc-row">
         <div class="kc-dot dot-amber"></div>
         <div class="kc-name">Delayed Activation</div>
-        <div class="kc-bar-bg">
-          <div class="kc-bar bar-amber" id="bar-da" style="width:0%"></div>
-        </div>
+        <div class="kc-bar-bg"><div class="kc-bar bar-amber" id="bar-da" style="width:0%"></div></div>
         <div class="kc-frac" id="frac-da">0/2</div>
       </div>
       <div class="kc-row">
         <div class="kc-dot dot-blue"></div>
         <div class="kc-name">Persistence</div>
-        <div class="kc-bar-bg">
-          <div class="kc-bar bar-blue" id="bar-ut" style="width:0%"></div>
-        </div>
+        <div class="kc-bar-bg"><div class="kc-bar bar-blue" id="bar-ut" style="width:0%"></div></div>
         <div class="kc-frac" id="frac-ut">0/3</div>
       </div>
       <div class="kc-row">
         <div class="kc-dot dot-purple"></div>
         <div class="kc-name">Goal Completion</div>
-        <div class="kc-bar-bg">
-          <div class="kc-bar bar-purple" id="bar-lm" style="width:0%"></div>
-        </div>
+        <div class="kc-bar-bg"><div class="kc-bar bar-purple" id="bar-lm" style="width:0%"></div></div>
         <div class="kc-frac" id="frac-lm">0/4</div>
       </div>
     </div>
+
     <div class="traj-section">
       <div class="traj-header">
-        <span class="panel-title">MCTS Trajectory Log</span>
-        <span class="cumrew-label" id="cum-rew">Cumulative Reward: 0</span>
+        <div class="traj-header-left">
+          <span class="traj-title">MCTS Trajectory Log</span>
+        </div>
+        <div class="traj-header-right">
+          <span class="cumrew-label" id="cum-rew">Cumulative Reward: 0</span>
+        </div>
       </div>
-      <div id="traj-log"></div>
+      <div id="traj-log" class="traj-log-body"></div>
     </div>
+
   </section>
+
 </main>
 
 <script src="spade.js"></script>
