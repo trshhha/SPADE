@@ -22,7 +22,7 @@
   --hdr-rag:      #ffe6e6;
   --hdr-metrics:  #e9fffe;
 
-  /* Header bottom border colors — coordinated */
+  /* Header bottom border colors */
   --hdr-default-border: #93c5fd;
   --hdr-memory-border:  #f0d060;
   --hdr-tool-border:    #d8b4fe;
@@ -89,9 +89,7 @@ html, body {
   line-height: 1.55;
 }
 
-/* ============================================================
-   TOPBAR
-============================================================ */
+/* TOPBAR */
 .topbar {
   display: flex;
   align-items: center;
@@ -251,9 +249,7 @@ html, body {
 
 .btn-danger:hover { background: var(--bg-red); }
 
-/* ============================================================
-   MAIN GRID
-============================================================ */
+/* MAIN GRID */
 .main-grid {
   display: grid;
   grid-template-columns: 380px 1fr 320px;
@@ -263,9 +259,7 @@ html, body {
   border-top: 1px solid var(--border-mid);
 }
 
-/* ============================================================
-   PANELS
-============================================================ */
+/* PANELS */
 .panel {
   display: flex;
   flex-direction: column;
@@ -349,9 +343,7 @@ html, body {
   font-weight: 500;
 }
 
-/* ============================================================
-   CONVERSATION LOG
-============================================================ */
+/* CONVERSATION LOG */
 .conv-msg {
   display: flex;
   flex-direction: column;
@@ -396,9 +388,7 @@ html, body {
   border-bottom-left-radius: 4px;
 }
 
-/* ============================================================
-   CENTER PANEL
-============================================================ */
+/* CENTER PANEL */
 .panel-center {
   display: flex;
   flex-direction: column;
@@ -417,9 +407,7 @@ html, body {
   min-height: 0;
 }
 
-/* ============================================================
-   MEMORY BUFFER
-============================================================ */
+/* MEMORY BUFFER */
 .mem-entry {
   border-left: 4px solid var(--border-mid);
   padding: 10px 13px;
@@ -458,9 +446,7 @@ html, body {
   font-weight: 700;
 }
 
-/* ============================================================
-   TOOL INVOCATION LOG
-============================================================ */
+/* TOOL INVOCATION LOG */
 .tool-panel { flex-shrink: 0; }
 
 .tool-log-body {
@@ -506,9 +492,7 @@ html, body {
 .badge-called { background: var(--bg-green); border-color: var(--border-green); color: var(--accent-green); }
 .badge-none   { background: var(--bg-card);  border-color: var(--border-mid);   color: var(--text-muted); }
 
-/* ============================================================
-   RAG PANEL
-============================================================ */
+/* RAG PANEL */
 .rag-panel {
   flex-shrink: 0;
   background: var(--bg-surface);
@@ -553,9 +537,7 @@ html, body {
 .rag-status-clean    { background: var(--bg-green); border-color: var(--border-green); color: var(--accent-green); }
 .rag-status-poisoned { background: var(--bg-red);   border-color: var(--border-red);   color: var(--accent-red); }
 
-/* ============================================================
-   RIGHT PANEL — LIVE METRICS
-============================================================ */
+/* RIGHT PANEL — LIVE METRICS */
 .panel-right {
   display: flex;
   flex-direction: column;
@@ -636,9 +618,7 @@ html, body {
   font-weight: 700;
 }
 
-/* ============================================================
-   MCTS TRAJECTORY LOG
-============================================================ */
+/* MCTS TRAJECTORY LOG */
 .traj-section {
   flex: 1;
   overflow: hidden;
